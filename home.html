@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+   <head>
+
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <title>Forms</title>
+           
+
+    </head>
+    <body>
+<br>
+        <h2>WELCOME<br></h2>
+        <form  onsubmit="result()">
+        <table class="table">
+           
+                <tr><td colspan="2">
+                    <h1> Registration Form</h1>
+                </td></tr>
+                <tr>
+               
+                    <td><label for="fname">First Name: </label></td>
+                    <td><input type="text" id="fname" placeholder="Jon" required></td>
+                </tr>
+
+                <tr>
+                    <td><label for="lname">Last Name: </label></td>
+                    <td><input type="text" id="lname" placeholder="Doe"></td>
+                </tr>
+
+                <tr>
+                    <td>Gender</td>
+                    <td><input type="radio" id="male" value="Male" name="gender" >Male <br>
+                        <input type="radio" id="female" value="Female" name="gender">Female
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="dob">Date of Birth</label></td>
+                    <td><input type="date" id="dob" placeholder="dd/mm/yyyy" ></td>
+                </tr>
+                <tr>
+                    <td><label for="email">Email Id</label></td>
+                    <td><input type="email" id="email" placeholder="jon@doe.com" required></td>
+                </tr>
+                <tr>
+                    <td><label for="phno">Phone Number</td></label>
+                    <td><input type="tel"id="phno" placeholder="9876543210" required></td>
+                </tr>
+                <tr>
+                    <td><label for="add">Address</label></td>
+                    <td><input type="text"  id="add" placeholder="Address"></td>
+                </tr>
+
+                <tr>
+                    <td>Favorite Web Language</td>
+                    <td>
+                        <input type="checkbox" id="html"  value="html">HTML<br>
+
+                        <input type="checkbox" id="css"  value="css">CSS<br>
+
+                        <input type="checkbox" id="javascript" value="javascript">JavaScript<br>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><label for="qual">Qualification</label></td>
+                    <td>
+                        <select name="qualification" id="qualification">
+                            <option value="Diploma">Diploma</option>
+                            <option value="B.Tech">B.Tech</option>
+                            <option value="Degree">Degree</option>
+                            <option value="Plus Two">Plus Two</option>
+                        </select>
+                    </td>
+                </tr>
+                
+                <tr>
+
+                    <td colspan="2" align="center"> <input type="reset" value="Reset">
+                    <input type="submit" value="Submit"></td>
+                </tr>
+            
+        </table>
+    </form>
+    </body>
+    <script>
+        function result(){
+
+           var fname=document.getElementById("fname").value;
+           var lname=document.getElementById("lname").value;
+
+
+           var dob=document.getElementById("dob").value;
+           var email=document.getElementById("email").value;
+           var phno=document.getElementById("phno").value;
+           var add=document.getElementById("add").value;
+
+
+           if(document.getElementById('male').checked) {
+               var gender=document.getElementById("male").value;
+           }   
+           else if(document.getElementById('female').checked) {
+               var gender=document.getElementById("female").value;
+           }
+
+           var qualification = document.getElementById("qualification");
+           var selected_qualification = qualification.options[qualification.selectedIndex].text;
+
+           var fav = ["html", "css", "javascript"];
+           var opted_fav = [];
+
+           for(var i = 0; i < 3; i++){
+               if (document.getElementById(fav[i]).checked) {
+               opted_fav.push(document.getElementById(fav[i]).value);
+               }
+           }
+
+           document.writeln("Welcome "+fname+" "+lname+"<br><br>");
+           document.writeln("Your First Name is : "+fname+"<br>");
+           document.writeln("Your Last Name is : "+lname+"<br>");
+           document.writeln("Your Gender is : "+gender+"<br>");
+           document.writeln("Your Date of Birth is : "+dob+"<br>");
+           document.writeln("Your Email Id is : "+email+"<br>");
+           document.writeln("Your Phone number is : "+phno+"<br>");
+           document.writeln("Your Address Id is : "+add+"<br>");
+           document.writeln("Your Favorite Web Language is : "+opted_fav+"<br>");
+           document.writeln("Your Qualification Id is : "+selected_qualification+"<br>");
+       }
+   </script>
+</html>
